@@ -20,10 +20,11 @@ public class Plugin : BasePlugin
         Log = base.Log;
         Log.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
 
-        Plugin.playerOneHexColor = base.Config.Bind<string>("Colors", "Player1HexColor", "FFFFFF", "Player 1's Body Color (Hex or 'None')");
-        Plugin.playerTwoHexColor = base.Config.Bind<string>("Colors", "Player2HexColor", "FFFFFF", "Player 2's Body Color (Hex or 'None')");
-        Plugin.playerThreeHexColor = base.Config.Bind<string>("Colors", "Player3HexColor", "FFFFFF", "Player 3's Body Color (Hex or 'None')");
-        Plugin.playerFourHexColor = base.Config.Bind<string>("Colors", "Player4HexColor", "FFFFFF", "Player 4's Body Color (Hex or 'None')");
+        playerOneHexColor = Config.Bind<string>("Colors", "Player1HexColor", "FFFFFF", "Player 1's Body Color (Hex or 'None')");
+        playerTwoHexColor = Config.Bind<string>("Colors", "Player2HexColor", "FFFFFF", "Player 2's Body Color (Hex or 'None')");
+        playerThreeHexColor = Config.Bind<string>("Colors", "Player3HexColor", "FFFFFF", "Player 3's Body Color (Hex or 'None')");
+        playerFourHexColor = Config.Bind<string>("Colors", "Player4HexColor", "FFFFFF", "Player 4's Body Color (Hex or 'None')");
+
         Harmony harmony = new Harmony(MyPluginInfo.PLUGIN_GUID);
         harmony.PatchAll();
     }
@@ -45,7 +46,7 @@ public class Plugin : BasePlugin
 
                 string text;
 
-                Log.LogDebug("Reading color!");
+                Log.LogDebug("Reading Color!");
 
                 switch (i)
                 {
@@ -69,12 +70,14 @@ public class Plugin : BasePlugin
 
                 if (text == "None")
                 {
+                    Log.LogInfo("Skipping Player #" + i);
                     continue;
                 }
 
                 Player activePlayer = PlayerManager.GetPlayerByIndex(i);
-                Log.LogDebug("Got player from manager!");
+                Log.LogDebug("Got Player from PlayerManager!");
 
+                // Add the # to the color code
                 text = text.PadLeft(7, '#');
 
                 bool flag = ColorUtility.TryParseHtmlString(text, out Color color);
@@ -83,6 +86,11 @@ public class Plugin : BasePlugin
                 {
                     Log.LogDebug("Attempting to update material and color!");
                     Renderer bodyRenderer = activePlayer.bodyRenderer;
+
+                    // Player 1 has a white texture on the suit
+                    // Using that as a replacement, because other players have textures with colors
+                    // Want to change this to use the texture instead of the material
+
                     bodyRenderer.material = PlayerManager.GetPlayerByIndex(1).bodyRenderer.material;
                     bodyRenderer.material.color = color;
                     Log.LogInfo("Updated Player #" + i + "to color" + text + "!");
@@ -92,7 +100,7 @@ public class Plugin : BasePlugin
                     Log.LogError("Error reading color " + text);
                 }
 
-                Log.LogInfo("Exiting Player" + i + "!");
+                Log.LogDebug("Exiting Player" + i + "!");
             }
         }
     }
