@@ -43,14 +43,9 @@ public class Plugin : BasePlugin
             {
                 Log.LogInfo("Updating Player #" + i);
 
-                Player playerByIndex = PlayerManager.GetPlayerByIndex(i);
-                Log.LogDebug("Got player from manager!");
-
-                Renderer bodyRenderer = playerByIndex.bodyRenderer;
-
                 string text;
 
-                Log.LogDebug("Trying to update color!");
+                Log.LogDebug("Reading color!");
 
                 switch (i)
                 {
@@ -72,15 +67,23 @@ public class Plugin : BasePlugin
                         break;
                 }
 
-                text = text.PadLeft(7, '#');
+                if (text == "None")
+                {
+                    continue;
+                }
 
+                Player activePlayer = PlayerManager.GetPlayerByIndex(i);
+                Log.LogDebug("Got player from manager!");
+
+                text = text.PadLeft(7, '#');
 
                 bool flag = ColorUtility.TryParseHtmlString(text, out Color color);
 
                 if (flag)
                 {
-                    Log.LogDebug("Attempting to update color!");
-                    Log.LogInfo("Old color: #" + bodyRenderer.material.color);
+                    Log.LogDebug("Attempting to update material and color!");
+                    Renderer bodyRenderer = activePlayer.bodyRenderer;
+                    bodyRenderer.material = PlayerManager.GetPlayerByIndex(1).bodyRenderer.material;
                     bodyRenderer.material.color = color;
                     Log.LogInfo("Updated Player #" + i + "to color" + text + "!");
                 }
