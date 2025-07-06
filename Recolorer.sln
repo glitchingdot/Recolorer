@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Recolorer", "Recolorer\Recolorer.csproj", "{24815D6D-C8FC-3EB8-6661-21AFD2F9EFF0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24815D6D-C8FC-3EB8-6661-21AFD2F9EFF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24815D6D-C8FC-3EB8-6661-21AFD2F9EFF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24815D6D-C8FC-3EB8-6661-21AFD2F9EFF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24815D6D-C8FC-3EB8-6661-21AFD2F9EFF0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D32A58BF-88B6-4470-9485-7997115D6708}
+	EndGlobalSection
+EndGlobal
