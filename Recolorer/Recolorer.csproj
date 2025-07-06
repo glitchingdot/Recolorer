@@ -24,11 +24,8 @@
     <Reference Include="Assembly-CSharp">
       <HintPath>Recolorer\lib\Assembly-CSharp.dll</HintPath>
     </Reference>
-      <Reference Include="Il2Cppmscorlib">
+    <Reference Include="Il2Cppmscorlib">
       <HintPath>Recolorer\lib\Il2Cppmscorlib.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine">
-      <HintPath>Recolorer\lib\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>Recolorer\lib\UnityEngine.CoreModule.dll</HintPath>
