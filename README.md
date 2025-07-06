@@ -23,5 +23,17 @@ Congrats, you've installed Recolorer!
 * Save the file
 * Launch Heavenly Bodies!
 
+# Compiling from source
+* Ensure you have at **.NET SDK (version 6 or newer) installed
+* Download the source files from the repo
+* Create a /lib/ directory in the root of Recolorer (`Recolorer/lib/`)
+* Run Heavenly Bodies at least once after installing BepInEx
+* Inside the Heavenly Bodies root directory, navigate to `BepInEx/interop/`, and copy:
+	* Assembly-CSharp.dll
+	* Il2Cppmscorlib.dll
+	* UnityEngine.CoreModule
+into the lib folder
+* Compile using `dotnet build`
+
 ## Other
 If you run into issues, DM me on Discord: `@jackdotpng`
