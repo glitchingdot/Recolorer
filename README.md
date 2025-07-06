@@ -22,3 +22,6 @@ Congrats, you've installed Recolorer!
     * None (will use default color)
 * Save the file
 * Launch Heavenly Bodies!
+
+## Other
+If you run into issues, DM me on Discord: `@jackdotpng`
