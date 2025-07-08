@@ -30,6 +30,9 @@
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>Recolorer\lib\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
+    <Reference Include="ScriptableObject-Architecture">
+      <HintPath>Recolorer\lib\ScriptableObject-Architecture.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
