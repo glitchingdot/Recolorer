@@ -21,12 +21,12 @@ public class Plugin : BasePlugin
         Log = base.Log;
         Log.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
 
-        playerOneHexColor = Config.Bind<string>("Colors", "Player1HexColor", "None", "Player 1's Body Color (Hex [FFFFFF] or 'None')");
-        playerTwoHexColor = Config.Bind<string>("Colors", "Player2HexColor", "None", "Player 2's Body Color (Hex [FFFFFF] or 'None')");
-        playerThreeHexColor = Config.Bind<string>("Colors", "Player3HexColor", "None", "Player 3's Body Color (Hex [FFFFFF] or 'None')");
-        playerFourHexColor = Config.Bind<string>("Colors", "Player4HexColor", "None", "Player 4's Body Color (Hex [FFFFFF] or 'None')");
+        playerOneHexColor = Config.Bind<string>("Colors", "Player1HexColor", "FFFFFF", "Player 1's Body Color (Hex [e.x. FFFFFF] or 'None')");
+        playerTwoHexColor = Config.Bind<string>("Colors", "Player2HexColor", "None", "Player 2's Body Color (Hex [e.x. FFFFFF] or 'None')");
+        playerThreeHexColor = Config.Bind<string>("Colors", "Player3HexColor", "None", "Player 3's Body Color (Hex [e.x. FFFFFF] or 'None')");
+        playerFourHexColor = Config.Bind<string>("Colors", "Player4HexColor", "None", "Player 4's Body Color (Hex [e.x. FFFFFF] or 'None')");
 
-        Harmony harmony = new Harmony(MyPluginInfo.PLUGIN_GUID);
+        Harmony harmony = new(MyPluginInfo.PLUGIN_GUID);
         harmony.PatchAll();
     }
 
