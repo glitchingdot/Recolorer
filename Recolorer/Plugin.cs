@@ -3,6 +3,7 @@ using BepInEx.Configuration;
 using BepInEx.Logging;
 using BepInEx.Unity.IL2CPP;
 using HarmonyLib;
+using HB.Collections;
 using HB.Runtime.Player;
 using UnityEngine;
 
@@ -40,6 +41,24 @@ public class Plugin : BasePlugin
         [HarmonyPostfix]
         private static void RecolorPlayers()
         {
+            // Load the material collection
+            int baseSkinsCollectionID = 12590;
+            Object loadedObj = Object.ForceLoadFromInstanceID(baseSkinsCollectionID);
+
+            // Player 1 has a white texture on the suit
+            // Using that as a replacement, because other players have textures with colors
+            MaterialCollection materialCollection = loadedObj.TryCast<MaterialCollection>();
+
+            if (materialCollection == null)
+            {
+                Log.LogError("Error casting Object to MaterialCollection!");
+                return;
+            }
+            else
+            {
+                Log.LogDebug("Casted Object to MaterialCollection!");
+            }
+
             for (int i = 0; i < PlayerManager.activePlayerCount; i++)
             {
                 Log.LogInfo("Updating Player #" + i);
@@ -89,13 +108,12 @@ public class Plugin : BasePlugin
                     Log.LogDebug("Attempting to update material and color!");
                     Renderer bodyRenderer = activePlayer.bodyRenderer;
 
-                    // Player 1 has a white texture on the suit
-                    // Using that as a replacement, because other players have textures with colors
-                    // Want to change this to use the texture instead of the material
+                    Material whiteMaterial = materialCollection.ToArray()[1];
 
-                    bodyRenderer.material = PlayerManager.GetPlayerByIndex(1).bodyRenderer.material;
+                    bodyRenderer.material = whiteMaterial;
                     bodyRenderer.material.color = color;
-                    Log.LogInfo("Updated Player #" + i + "to color" + text + "!");
+
+                    Log.LogInfo("Updated Player #" + i + " to color " + color.ToString() + "!");
                 }
                 else
                 {
