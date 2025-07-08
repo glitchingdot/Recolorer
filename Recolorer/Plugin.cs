@@ -59,14 +59,16 @@ public class Plugin : BasePlugin
                 Log.LogDebug("Casted Object to MaterialCollection!");
             }
 
+            int whiteMaterialIndex = 1;
+            Material whiteMaterial = materialCollection.ToArray()[whiteMaterialIndex];
+
             for (int i = 0; i < PlayerManager.activePlayerCount; i++)
             {
                 Log.LogInfo("Updating Player #" + i);
 
                 string text;
 
-                Log.LogDebug("Reading Color!");
-
+                Log.LogDebug("Reading color from player index!");
 
                 // not great but best i've got rn
                 switch (i)
@@ -84,6 +86,7 @@ public class Plugin : BasePlugin
                         text = playerFourHexColor.Value;
                         break;
                     default:
+                        Log.LogInfo("Player is outside of regular bounds!");
                         text = "FFFFFF";
                         break;
                 }
@@ -105,12 +108,19 @@ public class Plugin : BasePlugin
 
                 if (flag)
                 {
+                    Log.LogDebug("Parsed color as " + color.ToString());
                     Log.LogDebug("Attempting to update material and color!");
                     Renderer bodyRenderer = activePlayer.bodyRenderer;
 
-                    Material whiteMaterial = materialCollection.ToArray()[1];
-
-                    bodyRenderer.material = whiteMaterial;
+                    if (whiteMaterial == null)
+                    {
+                        Log.LogError("Error with replacement material!");
+                    }
+                    else
+                    {
+                        bodyRenderer.material = whiteMaterial;
+                        Log.LogDebug("Updated material!");
+                    }
                     bodyRenderer.material.color = color;
 
                     Log.LogInfo("Updated Player #" + i + " to color " + color.ToString() + "!");
