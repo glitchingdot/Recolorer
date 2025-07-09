@@ -6,7 +6,7 @@ Recolorer is a mod for 2pt Interactive's [Heavenly Bodies](https://heavenlybodie
 
 ## Installation
 1. Download and Install BepInEx following the instructions on their [website](https://docs.bepinex.dev/master/articles/user_guide/installation/unity_il2cpp.html)  
-(Make sure to download the **IL2CPP** version of BepInEx, and **run Heavenly Bodies once** before installing Recolorer)
+(Make sure to download the **Unity.IL2CPP-win-x86** version of BepInEx, and **run Heavenly Bodies once** before installing Recolorer)
 2. Download the most recent `Recolorer.zip` from the [Releases](https://github.com/glitchingdot/Recolorer/releases) page
 3. Extract `Recolorer.zip` into a folder
 4. Copy the `plugins/com-jackdotpng-Recolorer` folder into the `BepInEx/plugins/` folder  
