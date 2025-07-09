@@ -1,4 +1,4 @@
-using BepInEx;
+﻿using BepInEx;
 using BepInEx.Configuration;
 using BepInEx.Logging;
 using BepInEx.Unity.IL2CPP;
@@ -21,13 +21,13 @@ public class Plugin : BasePlugin
         Log = base.Log;
         Log.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
 
-        exampleHex = Config.Bind<string>("Examples", "ExampleHex", "FF0000", "Entering a color code of pure red");
-        exampleNone = Config.Bind<string>("Examples", ExampleNone", "None", "Player will not be recolored, will use default skin");
+        exampleHex = Config.Bind<string>("01 - Examples", "ExampleHex", "FF0000", "Player will be recolored to pure red. Google Color Picker is useful for getting HEX codes for colors");
+        exampleNone = Config.Bind<string>("01 - Examples", "ExampleNone", "None", "Player will not be recolored, will use default skin");
 
-        playerOneHexColor = Config.Bind<string>("Colors", "Player1HexColor", "FFFFFF", "Player 1's Body Color (Hex [e.x. FFFFFF] or 'None')");
-        playerTwoHexColor = Config.Bind<string>("Colors", "Player2HexColor", "None", "Player 2's Body Color (Hex [e.x. FFFFFF] or 'None')");
-        playerThreeHexColor = Config.Bind<string>("Colors", "Player3HexColor", "None", "Player 3's Body Color (Hex [e.x. FFFFFF] or 'None')");
-        playerFourHexColor = Config.Bind<string>("Colors", "Player4HexColor", "None", "Player 4's Body Color (Hex [e.x. FFFFFF] or 'None')");
+        playerOneHexColor = Config.Bind<string>("02 - Colors", "Player1HexColor", "FFFFFF", "Player 1's Body Color (HEX [e.x. FFFFFF] or 'None')");
+        playerTwoHexColor = Config.Bind<string>("02 - Colors", "Player2HexColor", "None", "Player 2's Body Color (HEX [e.x. FFFFFF] or 'None')");
+        playerThreeHexColor = Config.Bind<string>("02 - Colors", "Player3HexColor", "None", "Player 3's Body Color (HEX [e.x. FFFFFF] or 'None')");
+        playerFourHexColor = Config.Bind<string>("02 - Colors", "Player4HexColor", "None", "Player 4's Body Color (HEX [e.x. FFFFFF] or 'None')");
 
         Harmony harmony = new(MyPluginInfo.PLUGIN_GUID);
         harmony.PatchAll();
