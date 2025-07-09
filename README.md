@@ -1,8 +1,18 @@
-# Recolorer
-Because cosmonauts need fashion too.
+<p align="center">
+  <img src="Assets/Banner.png" alt="Recolorer Banner"/>
+</p>
+
+<p align="center">
+  Because cosmonauts need fashion too.
+</p>
+
+<p align="center">
+  Custom colors for all four Heavenly Bodies player characters.
+</p>
+
 
 ## Description
-Recolorer is a mod for 2pt Interactive's [Heavenly Bodies](https://heavenlybodiesgame.com/) that adds support for custom colors for all four player characters.
+**Recolorer** is a mod for 2pt Interactive's [Heavenly Bodies](https://heavenlybodiesgame.com/) that adds the ability to change the suit color of the player characters. Supports both Main and DLC gameplay.
 
 ## Installation
 1. Download and Install BepInEx following the instructions on their [website](https://docs.bepinex.dev/master/articles/user_guide/installation/unity_il2cpp.html)  
