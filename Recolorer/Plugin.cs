@@ -1,4 +1,4 @@
-﻿using BepInEx;
+using BepInEx;
 using BepInEx.Configuration;
 using BepInEx.Logging;
 using BepInEx.Unity.IL2CPP;
@@ -21,6 +21,9 @@ public class Plugin : BasePlugin
         Log = base.Log;
         Log.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
 
+        exampleHex = Config.Bind<string>("Examples", "ExampleHex", "FF0000", "Entering a color code of pure red");
+        exampleNone = Config.Bind<string>("Examples", ExampleNone", "None", "Player will not be recolored, will use default skin");
+
         playerOneHexColor = Config.Bind<string>("Colors", "Player1HexColor", "FFFFFF", "Player 1's Body Color (Hex [e.x. FFFFFF] or 'None')");
         playerTwoHexColor = Config.Bind<string>("Colors", "Player2HexColor", "None", "Player 2's Body Color (Hex [e.x. FFFFFF] or 'None')");
         playerThreeHexColor = Config.Bind<string>("Colors", "Player3HexColor", "None", "Player 3's Body Color (Hex [e.x. FFFFFF] or 'None')");
@@ -29,6 +32,9 @@ public class Plugin : BasePlugin
         Harmony harmony = new(MyPluginInfo.PLUGIN_GUID);
         harmony.PatchAll();
     }
+
+    internal static ConfigEntry<string> exampleHex;
+    internal static ConfigEntry<string> exampleNone;
 
     internal static ConfigEntry<string> playerOneHexColor;
     internal static ConfigEntry<string> playerTwoHexColor;
