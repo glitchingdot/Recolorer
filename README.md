@@ -26,7 +26,7 @@
 Congrats, you've installed Recolorer!
 
 # Usage
-* Open `\BepInEx\config\Recolorer.cfg` in your preferred text editor
+* Open `\BepInEx\config\com.jackdotpng.Recolorer.cfg` in your preferred text editor
 * Edit the provided colors to change the color of each cosmonaut
 * Colors can either be entered as:
     * Hex (ex: `0F0F0F`)  
