@@ -50,4 +50,4 @@ into the lib folder
 * Compile using `dotnet build`
 
 ## Other
-If you run into issues, DM me on Discord: `@jackdotpng`
+If you run into issues, please either submit an issue report in this repo, or DM me on Discord: `@jackdotpng`
